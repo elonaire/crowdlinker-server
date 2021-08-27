@@ -6,6 +6,7 @@ import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { DatabaseModule } from './database/database.module';
 import { UsersModule } from './users/users.module';
+import { BlogModule } from './blog/blog.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { UsersModule } from './users/users.module';
       signOptions: { expiresIn: '1h' },
     }),
     ConfigModule.forRoot(),
+    BlogModule,
   ],
   controllers: [AppController],
   providers: [AppService],

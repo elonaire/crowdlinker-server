@@ -1,5 +1,6 @@
-import { Table, Column, Model, ForeignKey, BelongsToMany, IsEmail, AllowNull } from 'sequelize-typescript';
+import { Table, Column, Model, ForeignKey, BelongsToMany, IsEmail, AllowNull, HasMany } from 'sequelize-typescript';
 import { ApiProperty } from '@nestjs/swagger';
+import { BlogPost } from 'src/blog/blog.entity';
 
 @Table
 export class User extends Model<User> {
@@ -44,6 +45,9 @@ export class User extends Model<User> {
 
   @BelongsToMany(() => Role, () => UserRole)
   roles: Role[];
+
+  @HasMany(() => BlogPost)
+  blogPosts: BlogPost[];
 
 }
 
