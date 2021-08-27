@@ -9,6 +9,7 @@ export class BlogPost extends Model<BlogPost> {
   post_id: string;
 
   @ForeignKey(() => User)
+  @AllowNull(false)
   @Column
   user_id: string;
 
@@ -20,7 +21,7 @@ export class BlogPost extends Model<BlogPost> {
   @Column
   description: string;
 
-  @BelongsTo(() => User)
+  @BelongsTo(() => User, 'user_id')
   author: User;
 
 }
@@ -31,4 +32,9 @@ export class BlogPostDto {
   
     @ApiProperty()
     description: string;
+
+    @ApiProperty()
+    user_id: string;
+
+    post_id: string;
   }

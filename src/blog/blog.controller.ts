@@ -1,4 +1,4 @@
-import { Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { BlogPostDto } from './blog.entity';
 import { BlogService } from './blog.service';
 
@@ -14,7 +14,7 @@ export class BlogController {
     }
 
     @Post('')
-    createBlogPost(blogPostDto: BlogPostDto): Promise<BlogPostDto> {
-        return this.blogService.createBlogPost(blogPostDto);
+    createBlogPost(@Body() post: BlogPostDto): Promise<BlogPostDto> {
+        return this.blogService.createBlogPost(post);
     }
 }

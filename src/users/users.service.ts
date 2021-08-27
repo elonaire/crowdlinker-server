@@ -40,7 +40,7 @@ export class UsersService {
         );
         if (userExists) {
           throw new HttpException(
-            'User with the same detail(s) already exists.',
+            'A user with the same detail(s) already exists.',
             HttpStatus.BAD_REQUEST,
           );
         }
